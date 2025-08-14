@@ -1,5 +1,4 @@
-# A very simple Flask Hello World app for you to get started with...
-from flask import Flask, request, make_response, redirect
+from flask import Flask, request, make_response, redirect, abort
 
 app = Flask(__name__)
 @app.route('/')
@@ -26,7 +25,10 @@ def objetoResposta():
 
     return response
 
-
-@app.route('/redirecionamento ')
-def codigoStatus():
+@app.route('/redirecionamento')
+def redirecionamento():
     return redirect('https://ptb.ifsp.edu.br/')
+
+@app.route('/abortar')
+def abortar():
+    abort(404)
